@@ -8,6 +8,6 @@ Use the converter [here](https://orikome.github.io/squircle-image-converter/) or
 
 ## Example Conversion
 
-![thumbnail](https://github.com/orikome/squircle-image-converter/assets/46493082/e2c0160c-22d6-4010-80b4-8cbb35b5139f)
+![thumbnail](https://github.com/orikome/squircle-image-converter/assets/46493082/d1c35664-b916-420d-b147-9d929dcaebca)
 
 Image converted with effect intensity set to 100 (default).
