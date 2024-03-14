@@ -1,9 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     const effectSlider = document.getElementById('effectSlider');
     const effectValue = document.getElementById('effectValue');
+    const fileInput = document.getElementById('fileInput');
 
-    effectSlider.addEventListener('input', function() {
-        effectValue.textContent = effectSlider.value;
+    if(effectSlider) {
+        effectSlider.addEventListener('input', function() {
+            effectValue.textContent = effectSlider.value;
+        });
+    }
+
+    document.getElementById('drop_zone').addEventListener('click', function() {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            processImage(this.files[0], parseInt(effectSlider ? effectSlider.value : 0));
+        }
     });
 
     document.getElementById('drop_zone').addEventListener('dragover', function(e) {
@@ -15,10 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('drop_zone').addEventListener('drop', function(e) {
         e.stopPropagation();
         e.preventDefault();
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            processImage(files[0], parseInt(effectSlider.value));
-        }
+        fileInput.files = e.dataTransfer.files;
+        fileInput.dispatchEvent(new Event('change'));
     });
 });
 
